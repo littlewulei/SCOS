@@ -31,7 +31,7 @@ public class FoodDetailed extends AppCompatActivity {
             bundle.putInt("arg", i);
             fragment.setArguments(bundle);
             list.add(fragment);
-            title.add("菜品");
+            title.add("菜品1");
         }
         viewPager = (ViewPager) findViewById(R.id.viewpager2);//viewpager 在food_view 配置文件中
 
