@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SCOS</string>
+
+    <string name="title_activity_scosentry">SCOSEntry</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_main_screen">MainScreen</string>
+    <string name="title_diancan">点餐</string>
+    <string name="title_dingdan">查看订单</string>
+    <string name="title_zhanghu">登录/注册</string>
+    <string name="title_help">系统帮助</string>
+
+
+</resources>

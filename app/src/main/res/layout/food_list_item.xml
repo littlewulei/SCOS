@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="219dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.30"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/food_title"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity=""
+            android:text="宫爆鸡丁"
+            android:textSize="25dp"
+            android:layout_weight="0.72" />
+
+        <TextView
+            android:id="@+id/food_introduce"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="0.73"
+
+            android:text="宫爆鸡丁很好吃" />
+
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/food_price"
+        android:layout_width="40dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:text="30元"
+        android:layout_weight="0.56" />
+
+    <Button
+        android:id="@+id/order"
+        android:layout_width="68dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="点菜" />
+
+</LinearLayout>
