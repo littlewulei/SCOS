@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="es.source.code.activity">
+    package="es.source.code.activity"
+    >
 
     <permission
         android:name="scos.permission.ACCESSSCOS"
@@ -41,15 +42,14 @@
             android:label="点餐" />
         <activity
             android:name=".FoodOrderView"
-            android:label="订单"
-            />
+            android:label="订单" />
         <activity
             android:name=".FoodDetailed"
-            android:label="详情"
-
+            android:label="详情"></activity>
+        <activity android:name=".SCOSHelper"
             >
-
-
+            <uses-permission android:name="android.permission.CALL_PHONE"/>
+            <uses-permission android:name="android.permission.SEND_SMS"/>
         </activity>
     </application>
 

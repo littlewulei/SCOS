@@ -1,6 +1,7 @@
 package es.source.code.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -89,13 +90,21 @@ public class LoginOrRegister extends AppCompatActivity {
                         userpassward.setError("密码输入不合法");
                     } else {
                         //输入合法
-                        //查询数据库
 
-
+                        User loginUser = User.getInstance();//获取 User实例
+                        loginUser.SetuserName(str1);
+                        loginUser.Setpassword(str2);
+                        loginUser.SetoldUser(false);
 
                         Intent intent = new Intent(LoginOrRegister.this, MainScreen.class);
-                        String data2 = "LoginSuccess";
-                        intent.putExtra("login_state", data2);
+                        String data = "LoginSuccess";
+                        intent.putExtra("login_state", data);
+                        intent.putExtra("loginUser",loginUser);
+                        SharedPreferences pref = LoginOrRegister.this.getSharedPreferences("data",MODE_PRIVATE);
+                        SharedPreferences.Editor editor = pref.edit();
+                        editor.putString("userName",str1);
+                        editor.putString("loginState","1");
+                        editor.commit();
                         Toast.makeText(getApplicationContext(), "登录成功",
                                 Toast.LENGTH_SHORT).show();
                         startActivity(intent);
@@ -181,19 +190,23 @@ public class LoginOrRegister extends AppCompatActivity {
                     } else {
                         //输入合法，注册到数据库
 
-                        User Loginuser = User.getInstance();//获取 User实例
-                        Loginuser.SetteruserName(str1);
-                        Loginuser.Setterpassword(str2);
-                        Loginuser.SetteroldUser(false);
+                        User loginUser = User.getInstance();//获取 User实例
+                        loginUser.SetuserName(str1);
+                        loginUser.Setpassword(str2);
+                        loginUser.SetoldUser(false);
 
                         Intent intent = new Intent(LoginOrRegister.this, MainScreen.class);
                         String data = "RegisterSuccess";
                         intent.putExtra("login_state", data);
+                        intent.putExtra("loginUser",loginUser);
+                        SharedPreferences pref = LoginOrRegister.this.getSharedPreferences("data",MODE_PRIVATE);
+                        SharedPreferences.Editor editor = pref.edit();
+                        editor.putString("userName",str1);
+                        editor.putString("loginState","1");
+                        editor.commit();
 
                         Toast.makeText(getApplicationContext(), "欢迎您成为SCOS新用户！",
                                 Toast.LENGTH_SHORT).show();
-
-
                         startActivity(intent);
                         finish();
                     }

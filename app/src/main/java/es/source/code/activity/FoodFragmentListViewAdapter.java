@@ -55,39 +55,41 @@ public class FoodFragmentListViewAdapter extends BaseAdapter {
         }else {
             vh = (ViewHolder) view.getTag();
         }
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, FoodDetailed.class);
-                context.startActivity(intent);
-            }
-        });
-        vh.order.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Button button = view.findViewById(R.id.order);
-                if(button.getText()=="点菜")
-                {
-                    button.setText("退点");
-                    Toast.makeText(context,"点菜成功",Toast.LENGTH_SHORT).show();}
-
-                // 添加到已点点菜
-                else
-                {
-                    button.setText("点菜");
-                    Toast.makeText(context,"退点成功",Toast.LENGTH_SHORT).show();
-                    // 从已点菜中删除
-
-                }
-
-
-            }
-        });
+//        view.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Intent intent = new Intent(context, FoodDetailed.class);
+//
+//                context.startActivity(intent);
+//            }
+//        });
+//        vh.order.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Button button = view.findViewById(R.id.order);
+//                if(button.getText().toString() == "点菜")
+//                {
+//                    button.setText("退点");
+//                    Toast.makeText(context,"点菜成功",Toast.LENGTH_SHORT).show();}
+//
+//                // 添加到已点点菜
+//                else
+//                {
+//                    button.setText("点菜");
+//                    Toast.makeText(context,"退点成功",Toast.LENGTH_SHORT).show();
+//                    // 从已点菜中删除
+//
+//                }
+//
+//
+//            }
+//        });
         Food  food = list.get(i);
-        vh.title.setText(food.GetterFoodTitle());
-        float price =food.GetterPrice();
+        vh.title.setText(food.GetFoodTitle());
+        float price =food.GetPrice();
         vh.price.setText(String.valueOf(price)+"元");
-        vh.introduce.setText(food.GetterIntroduce());
+        vh.introduce.setText(food.GetIntroduce());
         return view;
     }
     public class ViewHolder{

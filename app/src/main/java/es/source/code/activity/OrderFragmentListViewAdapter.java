@@ -71,9 +71,9 @@ public class OrderFragmentListViewAdapter extends BaseAdapter {
             }
         });
         Food  food = list.get(i);
-        vh2.title.setText(food.GetterFoodTitle());
-        float price =food.GetterPrice();
-        int order_num = food.GetterOrderNum();
+        vh2.title.setText(food.GetFoodTitle());
+        float price =food.GetPrice();
+        int order_num = food.GetOrderNum();
         vh2.order_num.setText(String.valueOf(order_num));
         vh2.price.setText(String.valueOf(price*order_num)+"元");
 

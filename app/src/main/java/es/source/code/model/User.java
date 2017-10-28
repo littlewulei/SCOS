@@ -1,11 +1,13 @@
 package es.source.code.model;
 
+import java.io.Serializable;
+
 /**
  * Created by LEI on 2017/10/14.
  */
 
 //用户类设计为单例模式
-public class User {
+public class User implements Serializable {
     private User() {
     }
     private static User user = null;
@@ -19,22 +21,22 @@ public class User {
     String password;
     Boolean oldUser;
 
-    public String GetteruserName() {
+    public String GetuserName() {
         return this.userName;
     }
-    public String Getterpassword() {
+    public String Getpassword() {
         return this.password;
     }
-    public Boolean GetteroldUser() {
+    public Boolean GetoldUser() {
         return this.oldUser;
     }
-    public void SetteruserName(String string) {
+    public void SetuserName(String string) {
         this.userName = string;
     }
-    public void Setterpassword(String string) {
+    public void Setpassword(String string) {
         this.password = string;
     }
-    public void SetteroldUser(Boolean boolean1) {
+    public void SetoldUser(Boolean boolean1) {
         this.oldUser = boolean1;
     }
 }

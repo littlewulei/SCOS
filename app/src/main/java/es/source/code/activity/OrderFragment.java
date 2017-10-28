@@ -7,6 +7,8 @@ package es.source.code.activity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -14,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -79,11 +82,38 @@ public class OrderFragment extends Fragment {
                 case 2:
                     list2.add(new Food("大闸蟹", 50, 3));
                     list2.add(new Food("啤酒", 5, 5));
-                    Button account = (Button) getActivity().findViewById(R.id.account);
+                    final Button account = (Button) getActivity().findViewById(R.id.account);
                     account.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             Toast.makeText(getActivity(), "您好，老顾客，本次可享受7折优惠！", Toast.LENGTH_LONG).show();
+                            final Handler handler = new Handler() {
+                                public void handleMessage(Message msg) {
+                                    if (msg.what == 1) {
+                                        //关闭进度条
+                                        Toast.makeText(getActivity(), "结账成功，增加积分1", Toast.LENGTH_LONG).show();
+                                        account.setVisibility(View.INVISIBLE);
+                                    }
+
+                                }
+                            };
+                            class ThreadShow implements Runnable {
+
+                                @Override
+                                public void run() {
+                                    while (true) {
+                                        try {
+                                            Thread.sleep(5000);
+                                            Message msg = new Message();
+                                            msg.what = 1;
+                                            handler.sendMessage(msg);
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                }
+                            }
+                            new Thread(new ThreadShow()).start();
                         }
                     });
 

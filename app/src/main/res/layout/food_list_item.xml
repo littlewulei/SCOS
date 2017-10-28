@@ -3,6 +3,8 @@
 
     android:layout_width="match_parent"
     android:layout_height="150dp"
+    android:focusable="true"
+    android:descendantFocusability="blocksDescendants"
     android:weightSum="1">
 
     <LinearLayout
@@ -10,6 +12,7 @@
         android:layout_height="match_parent"
         android:layout_weight="0.30"
         android:orientation="vertical"
+
         android:weightSum="1">
 
         <TextView
